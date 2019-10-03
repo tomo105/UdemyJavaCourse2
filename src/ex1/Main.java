@@ -84,21 +84,37 @@ public class Main {
         }
 
         boolean isCar = false;
-        int isDefinatelyCar = isCar ? 3 :  7;
+        int isDefinatelyCar = isCar ? 3 : 7;
         System.out.println(isDefinatelyCar);
 
         //challenge
         double twenty = 20.00d;
         double eighty = 80.00d;
         double summary = (twenty + eighty) * 100.00d;
-        double remainder  = summary % 40.0d;
-        boolean ifNotZero = (remainder == 0 ) ? true : false;// or remainder == 0
+        double remainder = summary % 40.0d;
+        boolean ifNotZero = (remainder == 0) ? true : false;// or remainder == 0
         System.out.println(ifNotZero);
-        if(! ifNotZero)
-        {
+        if (!ifNotZero) {
             System.out.println("Got some  remainder");
         }
 
+        int N = 50;
+        int[] array = new int[N];
+        int i = 0;
+        if (N % 2 == 1) {
+            array[0] = i;
+            i++;
+        }
+        for (; i < N - 1; i=i+2) {
+            array[i] = i;
+            array[i + 1] = i*(-1);
+        }
+        int sume = 0;
+        for (int j = 0; j < N - 2; j++) {
+         sume+=array[j];
+            System.out.println(array[j]);
+        }
+        System.out.println(sume +"sumaaa");
     }
 }
 
