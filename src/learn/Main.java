@@ -1,5 +1,6 @@
 package learn;
 
+import java.awt.event.MouseAdapter;
 import java.util.*;
 
 public class Main {
@@ -19,37 +20,43 @@ public class Main {
         employeeList.add(John);
         employeeList.add(Mark);
         employeeList.add(Rob);
+//
+////        Collections.sort(employeeList, new Comparator<Employee>() {
+////            @Override
+////            public int compare(Employee employee1, Employee employee2) {
+////                return employee1.getName().compareTo(employee2.getName());
+////            }
+////        });
+//        Collections.sort(employeeList, (employee1, employee2) ->
+//                employee1.getName().compareTo(employee2.getName()));
+//
+//        for (Employee employee : employeeList) {
+//            System.out.println(employee.getName());
+//        }
+////        String sillyString =doStringStaff(new UpperCancat() {
+////            @Override
+////            public String upperAndConcat(String s1, String s2) {
+////                return s1.toUpperCase()+ s2.toUpperCase();
+////            }
+////        },
+////                employeeList.get(0).getName(),employeeList.get(1).getName());
+////        System.out.println(sillyString);
+//        UpperConcat uc = (s1, s2) -> {
+//            String result = s1.toUpperCase() + s2.toUpperCase();
+//            return result;
+//        };
+//        String sillyString2 = doStringStaff(uc, employeeList.get(2).getName(),
+//                employeeList.get(3).getName());
+//        System.out.println(sillyString2);
 
-//        Collections.sort(employeeList, new Comparator<Employee>() {
-//            @Override
-//            public int compare(Employee employee1, Employee employee2) {
-//                return employee1.getName().compareTo(employee2.getName());
-//            }
-//        });
-        Collections.sort(employeeList, (employee1, employee2) ->
-                employee1.getName().compareTo(employee2.getName()));
+        AnotherClass anotherClass = new AnotherClass();
+        String res = anotherClass.doSth();
+        System.out.println(res);
 
-        for (Employee employee : employeeList) {
-            System.out.println(employee.getName());
-        }
-//        String sillyString =doStringStaff(new UpperCancat() {
-//            @Override
-//            public String upperAndConcat(String s1, String s2) {
-//                return s1.toUpperCase()+ s2.toUpperCase();
-//            }
-//        },
-//                employeeList.get(0).getName(),employeeList.get(1).getName());
-//        System.out.println(sillyString);
-        UpperCancat uc = (s1, s2) -> {
-            String result = s1.toUpperCase() + s2.toUpperCase();
-            return result;
-        };
-        String sillyString2 = doStringStaff(uc, employeeList.get(2).getName(),
-                employeeList.get(3).getName());
-        System.out.println(sillyString2);
+
     }
 
-    public final static String doStringStaff(UpperCancat uc, String s1, String s2) {
+    public final static String doStringStaff(UpperConcat uc, String s1, String s2) {
         return uc.upperAndConcat(s1, s2);
     }
 }
@@ -81,7 +88,35 @@ class Employee {
     }
 }
 
-interface UpperCancat {
+interface UpperConcat {
     public String upperAndConcat(String s1, String s2);
 }
 
+class AnotherClass {
+    public String doSth() {
+//        return Main.doStringStaff(new UpperConcat() {
+//            @Override
+//            public String upperAndConcat(String s1, String s2) {
+//                System.out.println("Another class name " + getClass().getSimpleName());
+//                return s1.toUpperCase() + s2.toUpperCase();
+//            }
+//        }, "String1", "String2");
+     /*   UpperConcat uc = (s1, s2) -> {
+            System.out.println("lambda expression class is" + getClass().getSimpleName());
+            String res = s1.toUpperCase() + s2.toUpperCase();
+            return res;
+        };*/
+        int i = 0;
+            UpperConcat uc = (s1,s2) -> {
+                System.out.println("lambda expression");
+                String res = s1.toUpperCase() + " " + s2.toUpperCase();
+                return res;
+            };
+
+        System.out.println("the another class is " + getClass().getSimpleName());  //   return uc;
+        return Main.doStringStaff(uc, "String1", "String2");
+        //or  return Main.doStringStaff(( s1 , s2 ) ->s1.toUpperCase()+s2.toUpperCase(), "String1", "String2\"");
+        //   without creating uc variable
+
+    }
+}
