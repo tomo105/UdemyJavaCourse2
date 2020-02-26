@@ -36,7 +36,7 @@ public class Main {
         System.out.println(getEvenDigitSum(34523));
         System.out.println(getDigitCount(2354));
         System.out.println(reverse(-342));
-        numberToWords(1230);
+        numberToWords(10230);
     }
 
     public static boolean isOdd(int number) {
@@ -254,6 +254,7 @@ public class Main {
     public static void numberToWords(int number) {
         if (number < 0)
             System.out.println("Invalid Value");
+
         int count = getDigitCount(number);
         int num = reverse(number);
 
