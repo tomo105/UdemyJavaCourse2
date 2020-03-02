@@ -1,4 +1,4 @@
-package exc7_classes;
+package exc7_classes_and_constructors;
 
 public class Car {
     private int doors;

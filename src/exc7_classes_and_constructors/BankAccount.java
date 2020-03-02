@@ -1,6 +1,4 @@
-package exc7_classes;
-
-import java.util.Scanner;
+package exc7_classes_and_constructors;
 
 public class BankAccount {
     private String accountNumber;

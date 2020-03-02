@@ -1,4 +1,4 @@
-package exc7_classes;
+package exc7_classes_and_constructors;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,6 +18,10 @@ public class Main {
         dean.print();
         roman.print();
 
+        Floor floor = new Floor(50,2);
+        Carpet carpet = new Carpet(2);
+        CarpetCostCalc carpetCostCalc = new CarpetCostCalc(floor,carpet);
+        System.out.println(carpetCostCalc.getTotalCost());
 
     }
 }
