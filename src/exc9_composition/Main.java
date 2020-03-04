@@ -1,4 +1,4 @@
-package exc9_composition_encapsulation_polymorphism;
+package exc9_composition;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,5 +15,8 @@ public class Main {
         Room room = new Room(wardrobe, bed ,carpet);
         //room.getBed().changePillow(4);
         room.cleanTheRoom();
+
+
+
     }
 }

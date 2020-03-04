@@ -1,4 +1,4 @@
-package exc9_composition_encapsulation_polymorphism;
+package exc9_composition;
 
 public class Motherboard {
     private String model;

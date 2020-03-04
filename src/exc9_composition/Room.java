@@ -1,6 +1,4 @@
-package exc9_composition_encapsulation_polymorphism;
-
-import exc7_classes_and_constructors.BankAccount;
+package exc9_composition;
 
 public class Room {
     private Wardrobe wardrobe;
