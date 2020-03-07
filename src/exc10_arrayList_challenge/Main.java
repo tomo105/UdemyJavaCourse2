@@ -61,18 +61,14 @@ public class Main {
         System.out.println("write new name of contact");
         String newName = scanner.nextLine();
         System.out.println("write new phone number of contact");
-        String phone = scanner.nextLine();
-        Contact contact = new Contact(newName, phone);
-        mobilePhone.updateContact(name, contact);
+        String newPhone = scanner.nextLine();
+        mobilePhone.updateContact(name,newName, newPhone);
     }
 
     private static void removeContact() {
         System.out.println("write name of contact");
         String name = scanner.nextLine();
-        System.out.println("write phone number of contact");
-        String phone= scanner.nextLine();
-        Contact contact = new Contact(name, phone);
-        mobilePhone.removeContact(contact);
+        mobilePhone.removeContact(name);
     }
 
     private static void addContact() {

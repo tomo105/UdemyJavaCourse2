@@ -26,13 +26,17 @@ public class MobilePhone {
             System.out.println("You have already this contact!");
     }
 
-    public void updateContact(String name, Contact contact) {
+    public void updateContact(String name, String newName, String newPhone) {
         int index = getIndexByName(name);
-        if (index >= 0) {
+        Contact contact = new Contact(newName, newPhone);
+        if (index < 0) {
+            System.out.println("you haven't got this contact in your mobile " + contact.getName() + " " + contact.getPhoneNumber());
+        } else if (ifContainsName(newName)) {
+            System.out.println("you already have got this contact in your mobile: " + contact.getName() + " " + contact.getPhoneNumber());
+
+        } else {
             contacts.set(index, contact);
             System.out.println("contact successfully updated");
-        } else {
-            System.out.println("you haven't got this contact in your mobile: " + contact.getName() + " " + contact.getPhoneNumber());
         }
 
     }
@@ -60,10 +64,11 @@ public class MobilePhone {
         return contacts.indexOf(contact);
     }
 
-    public void removeContact(Contact contact) {
-        if (ifContains(contact)) {
-            contacts.remove(contact);
-            System.out.println("Contact " + contact.getName() + " " + contact.getPhoneNumber() + " removes successfully");
+    public void removeContact(String name) {
+        if (ifContainsName(name)) {
+            int index = getIndexByName(name);
+            contacts.remove(index);
+            System.out.println("Contact " + name + " removes successfully");
         } else
             System.out.println("You don't have this contact already");
     }
