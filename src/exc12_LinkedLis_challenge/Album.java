@@ -2,6 +2,7 @@ package exc12_LinkedLis_challenge;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Album {
     private String name;
@@ -47,7 +48,7 @@ public class Album {
     }
 
     //                       od 1 do n !!! but in tab it is for 0 to n-1
-    public boolean addToPlaylist(int trackNumber, LinkedList<Song> playlist) {
+    public boolean addToPlaylist(int trackNumber, List<Song> playlist) {
         if (trackNumber >= 0 && trackNumber < this.songs.size()) {
             playlist.add(this.songs.get(trackNumber - 1));
             return true;
@@ -57,7 +58,7 @@ public class Album {
         }
     }
 
-    public boolean addToPlaylist(String title, LinkedList<Song> playlist) {
+    public boolean addToPlaylist(String title, List<Song> playlist) {
         Song tempSong = returnIfExist(title);
         if (tempSong != null) {
             playlist.add(tempSong);

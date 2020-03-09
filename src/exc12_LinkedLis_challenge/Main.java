@@ -22,7 +22,7 @@ public class Main {
         billyTalent.addSong("Lies", 3.25);
         albums.add(billyTalent);
 
-        LinkedList<Song> playList = new LinkedList<>();
+        List<Song> playList = new ArrayList<>();
         albums.get(0).addToPlaylist(2, playList);
         albums.get(0).addToPlaylist(3, playList);
         albums.get(1).addToPlaylist("Lies", playList);
@@ -36,7 +36,7 @@ public class Main {
 
     }
 
-    private static void play(LinkedList<Song> playList) {
+    private static void play(List<Song> playList) {
         ListIterator<Song> listIterator = playList.listIterator();
         boolean quit = false;
         boolean goForward = true;
@@ -127,7 +127,7 @@ public class Main {
 
     }
 
-    private static void printList(LinkedList<Song> playList) {
+    private static void printList(List<Song> playList) {
         Iterator<Song> iterator = playList.iterator();
         System.out.println("________________");
         while (iterator.hasNext()) {
