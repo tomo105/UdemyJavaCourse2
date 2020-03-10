@@ -1,7 +1,6 @@
 package exc12_LinkedLis_challenge;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Album {
