@@ -26,7 +26,7 @@ public class Album {
         return this.songs.addSong(new Song(name, duration));
     }
 
-//    private Song returnIfExist(String title) {
+//    private Song findSong(String title) {
 //        for (Song tempSong : this.songs.songs) {
 //            if (tempSong.getTitle().equals(title)) {
 //                return tempSong;
@@ -38,7 +38,7 @@ public class Album {
     //                       od 1 do n !!! but in tab it is for 0 to n-1
     public boolean addToPlaylist(int trackNumber, List<Song> playlist) {
         Song checkSong = this.songs.findSong(trackNumber);
-        if(checkSong != null) {
+        if (checkSong != null) {
             playlist.add(checkSong);
             return true;
         } else {
@@ -57,8 +57,7 @@ public class Album {
             return false;
         }
     }
-
-
+        //inner class -- used only in class Album
     private class SongList {
         private ArrayList<Song> songs;
 
