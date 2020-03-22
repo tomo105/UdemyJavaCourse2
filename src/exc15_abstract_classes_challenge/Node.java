@@ -1,6 +1,7 @@
 package exc15_abstract_classes_challenge;
 
 public class Node extends ListItem {
+
     public Node(Object value) {
         super(value);
     }
@@ -12,7 +13,8 @@ public class Node extends ListItem {
 
     @Override
     ListItem setNext(ListItem item) {
-        return this.rightLink = item;
+        this.rightLink = item;
+        return this.rightLink;
     }
 
     @Override
@@ -22,13 +24,15 @@ public class Node extends ListItem {
 
     @Override
     ListItem setPrevious(ListItem item) {
-        return this.leftLink = item;
+        this.leftLink = item;
+        return this.leftLink;
     }
 
     @Override
     int compareTo(ListItem item) {
         if (item != null) {
-            return ((String) super.getValue()).compareTo(((String) item.getValue()) );
+         //   System.out.println(((String) super.getValue()).compareTo(((String) item.getValue())));
+            return ((String) super.getValue()).compareTo(((String) item.getValue()));
         } else {
             return -1;
         }

@@ -15,7 +15,7 @@ public class MyLinkedList implements NodeList {
     @Override
     public boolean addItem(ListItem newItem) {
         if (this.root == null) {
-            //empty
+            //empty list
             this.root = newItem;
             return true;
         }
@@ -25,7 +25,7 @@ public class MyLinkedList implements NodeList {
         while (currentItem != null) {
             int comparison = currentItem.compareTo(newItem);
             if (comparison < 0) {
-                //new item  is greater
+                //new item  is greater move right
                 if (currentItem.next() != null) {
                     currentItem = currentItem.next();
                 } else {
@@ -36,18 +36,22 @@ public class MyLinkedList implements NodeList {
             } else if (comparison > 0) {
                 //new item is less , insert before
                 if (currentItem.previous() != null) {
+                    //    currentItem.previous().setNext(newItem).setPrevious(currentItem.previous());
+                    // because set(nextItem) returns newItem and we set immediately its previous node !!!!! very important
+                    //   newItem.setNext(currentItem).setPrevious(newItem);
+                    // same situation to this upper
                     currentItem.previous().setNext(newItem);
                     newItem.setPrevious(currentItem.previous());
-                    newItem.setNext(currentItem);
                     currentItem.setPrevious(newItem);
+                    newItem.setNext(currentItem);
+
                 } else {
-                    //there is not a valid previous node
-//                   this.root currentItem.setPrevious(newItem);
-//                    newItem.setNext(currentItem);
-                    newItem.setNext(this.root);
+                    //the previous node
+                    newItem.setNext(this.root);// could be newItem.setNext(this.root).setPrevious(newItem) cause of upper !!!
                     this.root.setPrevious(newItem);
                     this.root = newItem;
                 }
+                return true;
             } else {
                 //equal
                 System.out.println(newItem.getValue() + " is already pressent in linked list");
@@ -60,10 +64,11 @@ public class MyLinkedList implements NodeList {
     @Override
     public boolean removeItem(ListItem item) {
         if (item != null) {
-            System.out.println("bad argument");
+            System.out.println("Deleting item " + item.getValue());
         }
 
         ListItem currentItem = this.root;
+
         while (currentItem != null) {
             int comparison = currentItem.compareTo(item);
             if (comparison == 0) {
@@ -94,11 +99,9 @@ public class MyLinkedList implements NodeList {
             System.out.println("the list is empty");
         } else {
             while (root != null) {
-                System.out.println("xdd");
                 System.out.println(root.getValue());
                 root = root.next();
             }
         }
-
     }
 }

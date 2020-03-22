@@ -10,10 +10,6 @@ public abstract class ListItem {
         this.value = value;
     }
 
-    public Object getValue() {
-        return value;
-    }
-
     abstract ListItem next();
 
     abstract ListItem setNext(ListItem item);
@@ -23,6 +19,10 @@ public abstract class ListItem {
     abstract ListItem setPrevious(ListItem item);
 
     abstract int compareTo(ListItem item);
+
+    public Object getValue() {
+        return value;
+    }
 
     public void setValue(Object value) {
         this.value = value;
