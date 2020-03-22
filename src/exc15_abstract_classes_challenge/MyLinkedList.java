@@ -94,7 +94,7 @@ public class MyLinkedList implements NodeList {
     }
 
     @Override
-    public void tranverse(ListItem root) {
+    public void traverse(ListItem root) {
         if (root == null) {
             System.out.println("the list is empty");
         } else {
