@@ -3,7 +3,7 @@ package exc16_generics_introduction;
 import java.util.ArrayList;
 
 // extens class & interface & interface & ...
-public class Team<T extends Player> {
+public class Team<T extends Player> implements Comparable<Team<T>> {
     private String name;
     int played = 0;
     int won = 0;
@@ -57,4 +57,14 @@ public class Team<T extends Player> {
         return (this.won * 2) + this.tied;
     }
 
+    @Override
+    public int compareTo(Team<T> tTeam) {
+        if (this.ranking() > tTeam.ranking() ) {
+            return -1;
+        } else if  (this.ranking() < tTeam.ranking()){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
