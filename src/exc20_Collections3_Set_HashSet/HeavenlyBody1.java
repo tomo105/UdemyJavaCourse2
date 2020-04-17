@@ -2,23 +2,23 @@ package exc20_Collections3_Set_HashSet;
 
 import java.util.*;
 
-public final class HeavenlyBody {
+public final class HeavenlyBody1 {
     private final String name;
     private final double orbitalPeriod;
-    private final Set<HeavenlyBody> satellites;
+    private final Set<HeavenlyBody1> satellites;
 
-    public HeavenlyBody(String name, double orbitalPeriod) {
+    public HeavenlyBody1(String name, double orbitalPeriod) {
         this.name = name;
         this.orbitalPeriod = orbitalPeriod;
-        this.satellites = new HashSet<HeavenlyBody>();
+        this.satellites = new HashSet<HeavenlyBody1>();
     }
 
-    public Boolean addMoon(HeavenlyBody moon) {
+    public Boolean addMoon(HeavenlyBody1 moon) {
         return this.satellites.add(moon);
     }
 
-    public Set<HeavenlyBody> getSatellites() {
-        return new HashSet<HeavenlyBody>(this.satellites); // create copy of satellites, so the code calling
+    public Set<HeavenlyBody1> getSatellites() {
+        return new HashSet<HeavenlyBody1>(this.satellites); // create copy of satellites, so the code calling
         // this method do not have access to our original satellites variable
     }
 
@@ -40,7 +40,7 @@ public final class HeavenlyBody {
         if ((obj == null) || (obj.getClass() != this.getClass())) {
             return false;
         }
-        String objName = ((HeavenlyBody) obj).getName(); //check if obj is specific class and if it not null !!line 40
+        String objName = ((HeavenlyBody1) obj).getName(); //check if obj is specific class and if it not null !!line 40
         System.out.println(this.name.equals(objName));
         return this.name.equals(objName);
     }
