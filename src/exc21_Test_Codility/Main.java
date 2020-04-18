@@ -28,7 +28,14 @@ public class Main {
         for (int i : res) {
             System.out.print(i + " ");
         }
-
+        System.out.println("new exercises: ");
+        System.out.println(isPalindrome(-11311));
+        String number = "121";
+        int num = Integer.parseInt(number);
+        System.out.println(num + 3);
+        System.out.println();
+        System.out.println(largePrime(217));
+        System.out.println(largestPrime(217));
     }
 
     public static int[] solution(int n) {
@@ -109,4 +116,72 @@ public class Main {
         return tab;
     }
 
+    public static boolean isPalindrome(int number) {
+        int reverse = 0;
+        number = Math.abs(number);
+        int originalNumber = number;
+        while (number > 0) {
+            int modulo = number % 10;
+            reverse = (reverse * 10) + modulo;
+            number /= 10;
+        }
+        System.out.println(reverse);
+        if (originalNumber == reverse) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static int largePrime(int number) {
+        if (number < 0) {
+            return -1;
+        }
+
+        int div = 2;
+        int prime = -1;
+
+        while (number > 1) {
+            if (number % div != 0) {
+                div++;
+            } else {
+                prime = number;
+                number /= div;
+                if (number == 1) {
+                    break;
+                }
+            }
+        }
+        return prime;
+    }
+
+
+    public static int largestPrime(int num) {
+        if (num < 2) {
+            return -1;
+        }
+        int prime = -1;
+        int div = 2;
+
+        while (num > 1) {
+            if (num % div != 0) {
+                div++;
+            } else {
+                prime = num;
+                System.out.println("Prim" + prime);
+                num /= div;
+                if (num == 1) {
+                    break;
+                }
+            }
+        }
+        return prime;
+    }
+
 }
+
+
+
+
+
+
