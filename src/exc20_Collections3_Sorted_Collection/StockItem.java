@@ -1,7 +1,5 @@
 package exc20_Collections3_Sorted_Collection;
 
-import java.util.Objects;
-
 public class StockItem implements Comparable<StockItem> {
     private final String name;
     private double price;
@@ -26,6 +24,9 @@ public class StockItem implements Comparable<StockItem> {
     public double getPrice() {
         return price;
     }
+    public int quantityInStock() {
+        return quantityStock;
+    }
 
     public void setPrice(double price) {
         if (price > 0.0) {
@@ -42,10 +43,6 @@ public class StockItem implements Comparable<StockItem> {
         } else {
             this.quantityStock = 0;
         }
-    }
-
-    public int quantityInStock() {
-        return quantityStock;
     }
 
     public void setQuantityStock(int quantityStock) {

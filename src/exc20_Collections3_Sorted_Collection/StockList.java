@@ -35,12 +35,20 @@ public class StockList {
         return 0;
     }
 
-    public StockItem getList(String itemName) {
+    public StockItem get(String itemName) {
         return map.get(itemName);
     }
 
     public Map<String, StockItem> Items() {
+
         return Collections.unmodifiableMap(map);
+    }
+    public Map<String, Double> PriceList() {
+        Map<String, Double>  prices = new LinkedHashMap<>();
+        for(Map.Entry<String, StockItem> item : map.entrySet()) {
+            prices.put(item.getKey(),item.getValue().getPrice());
+        }
+        return Collections.unmodifiableMap(prices);
     }
 
     @Override
@@ -52,7 +60,7 @@ public class StockList {
 
             double itemValue = stockItem.getPrice() * stockItem.quantityInStock();
             s = s + stockItem + " There are " + stockItem.quantityInStock()
-                    + " in stock. Value of item:";
+                    + " in stock. Value of items:";
             s = s + String.format("%.2f",itemValue) + "\n";
             totalCost += itemValue;
         }
