@@ -69,7 +69,7 @@ public class Main {
         //you can't add or remove any thing from map
         // but you can change individual item
         stockList.Items().get("car").adjustStock(2000);
-        stockList.get("car").adjustStock(-1000);
+        stockList.getStockItem("car").adjustStock(-1000);
         System.out.println(stockList);
 
         System.out.println("Prices:");
@@ -80,7 +80,7 @@ public class Main {
 
     public  static int sellItem(Basket basket, String item, int quantity) {
         //retrieve the item from the stock list
-        StockItem stockItem = stockList.get(item);
+        StockItem stockItem = stockList.getStockItem(item);
         if (stockItem == null) {
             System.out.println("We don't sell " + item);
             return 0;

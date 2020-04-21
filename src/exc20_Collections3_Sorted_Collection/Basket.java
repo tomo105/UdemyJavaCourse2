@@ -22,6 +22,28 @@ public class Basket {
         return 0;
     }
 
+    public int removeFromBasket(StockItem item, int quantity) {
+        if (item != null && quantity > 0) {
+            int inBasket = map.getOrDefault(item, 0); //if not in the basket return 0 !!!
+            int newQuantityInBasket = inBasket - quantity; // value + quantity to remove --> return to Stock
+            if (newQuantityInBasket > 0) {
+                map.put(item, newQuantityInBasket);
+                return quantity;
+            } else if (newQuantityInBasket == 0) {
+                map.remove(item);
+                return quantity;
+            } else {
+                System.out.println("You want remove more than you have from your basket");
+            }
+
+        }
+        return 0;
+    }
+
+    public void emptyBasket() {
+        this.map.clear();
+    }
+
     public Map<StockItem, Integer> Items() {
         return Collections.unmodifiableMap(map);
     }
