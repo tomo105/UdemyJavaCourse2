@@ -28,7 +28,6 @@ public class BankAccountTestParameterized {
         account = new BankAccount("Tom", "the one", 1000.0, BankAccount.CHECKING);
         System.out.println("Running a test ..");
     }
-
     @Parameterized.Parameters
     public static Collection<Object[]> testCollections() {
         return Arrays.asList(new Object[][]{
@@ -39,6 +38,7 @@ public class BankAccountTestParameterized {
                 {1000.00, true, 2000.00},
         });
     }
+    // we create a constructor to use this parameters
 
 
     @Test
